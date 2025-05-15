@@ -59,7 +59,7 @@ local WinButton = MainTab:CreateButton({
    end,
 })
 
-local Button = Tab:CreateButton({
+local SafetyButton = MainTab:CreateButton({
    Name = "Find Bag and Statue(Doesnt always spawn)",
    Callback = function()
    	local SafetyStatue = workspace.Idols.SafetyStatue
