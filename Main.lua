@@ -43,7 +43,7 @@ local WinButton = MainTab:CreateButton({
       local WinPart = workspace.Assets:GetChildren()
       local finish = WinPart[1]:WaitForChild("Finish")
       local Player = workspace:WaitForChild(tostring(game.Players.LocalPlayer)):WaitForChild("HumanoidRootPart")
-      repeat wait() until game.Players.LocalPlayer.PlayerGui.Timer.Background.Timer.Text.Text == "0:00"
+      repeat wait() until game.Players.LocalPlayer.PlayerGui.Game.Background.MainText == "GO!"
       Player.CFrame = CFrame.new(finish.Position)
    end,
 })
