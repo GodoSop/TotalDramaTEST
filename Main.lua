@@ -41,10 +41,19 @@ local WinButton = MainTab:CreateButton({
    Name = "Win Obby",
    Callback = function()
       local WinPart = workspace.Assets:GetChildren()
-      local finish = WinPart[1]:WaitForChild("Finish")
       local Player = workspace:WaitForChild(tostring(game.Players.LocalPlayer)):WaitForChild("HumanoidRootPart")
+      local finishPart = nil
+      local assetsFolder = game.Workspace.Assets
+
+      for _, item in pairs(assetsFolder:GetDescendants()) do
+      	if item:IsA("Part") and item.Name == "Finish" then
+	      	finishPart = item
+	      	break
+      	end
+      end
+
       repeat wait() until game.Players.LocalPlayer.PlayerGui.Game.Background.MainText == "GO!"
-      Player.CFrame = CFrame.new(finish.Position)
+      Player.CFrame = CFrame.new(finishPart.Position)
    end,
 })
 
