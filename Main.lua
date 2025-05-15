@@ -37,7 +37,18 @@ local Window = Rayfield:CreateWindow({
 local MainTab = Window:CreateTab("Main", nil) -- Title, Image
 local Section = MainTab:CreateSection("Basic Features")
 
-local Input = MainTab:CreateInput({
+local WinButton = MainTab:CreateButton({
+   Name = "Win Obby",
+   Callback = function()
+      local WinPart = workspace.Assets:GetChildren()
+      local finish = WinPart[1]:WaitForChild("Finish")
+      local Player = workspace:WaitForChild(tostring(game.Players.LocalPlayer)):WaitForChild("HumanoidRootPart")
+      repeat wait() until game.Players.LocalPlayer.PlayerGui.Timer.Background.Timer.Text.Text == "0:00"
+      Player.CFrame = CFrame.new(finish.Position)
+   end,
+})
+
+local BecomeCharacter = MainTab:CreateInput({
    Name = "Become any character",
    CurrentValue = "",
    PlaceholderText = "Character",
@@ -52,3 +63,4 @@ local Input = MainTab:CreateInput({
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Buy"):FireServer(unpack(args))
    end,
 })
+
