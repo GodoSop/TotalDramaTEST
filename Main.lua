@@ -1,1 +1,3 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+for i =1 1, 100 do
+  print(i)
+end
