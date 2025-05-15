@@ -62,7 +62,7 @@ local WinButton = MainTab:CreateButton({
 local SafetyButton = MainTab:CreateButton({
    Name = "Find Bag and Statue(Doesnt always spawn)",
    Callback = function()
-   	repeat wait() until game.Players.LocalPlayer.PlayerGui.Timer.Background.Timer.Text == "00:0"
+   	repeat wait() until game.Players.LocalPlayer.PlayerGui.Timer.Background.Timer.Visible == false
 	
 	local SafetyStatue = workspace.Idols:WaitForChild("SafetyStatue",4)
 	local Bag = workspace.Idols:WaitForChild("Bag",4)
