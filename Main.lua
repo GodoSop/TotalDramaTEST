@@ -35,7 +35,7 @@ local Window = Rayfield:CreateWindow({
 })
 
 local MainTab = Window:CreateTab("Main", nil) -- Title, Image
-local Section = Tab:CreateSection("Basic Features")
+local Section = MainTab:CreateSection("Basic Features")
 
 local Input = MainTab:CreateInput({
    Name = "Become any character",
