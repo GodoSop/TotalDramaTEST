@@ -59,6 +59,20 @@ local WinButton = MainTab:CreateButton({
    end,
 })
 
+local Button = Tab:CreateButton({
+   Name = "Find Bag and Statue(Doesnt always spawn)",
+   Callback = function()
+   	local SafetyStatue = workspace.Idols.SafetyStatue
+	local Bag = workspace.Idols.Bag
+	local RootPart = workspace:WaitForChild(tostring(game.Players.LocalPlayer)):WaitForChild("HumanoidRootPart")
+
+	repeat wait() until game.Players.LocalPlayer.PlayerGui.Game.Background.MainText.Text == "Welcome"
+
+	RootPart.CFrame = CFrame.new(Bag:GetChildren()[1].Position)
+	RootPart.CFrame = CFrame.new(SafetyStatue:GetChildren()[1].Position)
+   end,
+})
+
 local BecomeCharacter = MainTab:CreateInput({
    Name = "Become any character",
    CurrentValue = "",
