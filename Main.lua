@@ -70,8 +70,8 @@ timerGui.AncestryChanged:Connect(function(_, parent)
 	local SafetyStatue = workspace.Idols:WaitForChild("SafetyStatue",4)
 	local Bag = workspace.Idols:WaitForChild("Bag",4)
 	local startingpos = workspace:WaitForChild(tostring(plr)).HumanoidRootPart.CFrame
-	Bag.hit.Position = Vector3.new(startingpos)
-	SafetyStatue.hit.Position = Vector3.new(startingpos)
+	Bag:MoveTo(CFrame.new(startingpos))
+	SafetyStatue:MoveTo(CFrame.new(startingpos))
     end
 end)		
   end,
