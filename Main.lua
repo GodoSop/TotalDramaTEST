@@ -62,17 +62,15 @@ local WinButton = MainTab:CreateButton({
 local SafetyButton = MainTab:CreateButton({
    Name = "Find Bag and Statue(Doesnt always spawn)",
    Callback = function()
-   	repeat wait() until game.Players.LocalPlayer.PlayerGui.Timer.Background.Timer.Visible == false
+   	repeat wait() until game.Players.LocalPlayer.PlayerGui.Game.Background.MainText.Text == "Welcome"
 	
-	local SafetyStatue = workspace.Idols:WaitForChild("SafetyStatue",3)
-	local Bag = workspace.Idols:WaitForChild("Bag",3)
+	local SafetyStatue = workspace.Idols:WaitForChild("SafetyStatue",4)
+	local Bag = workspace.Idols:WaitForChild("Bag",4)
 	local plr = game.Players.LocalPlayer
 	local startingpos = workspace:WaitForChild(tostring(plr)).HumanoidRootPart.CFrame
 
-	
-
-	plr.Character:MoveTo(Bag:GetChildren()[1].Position)
-	plr.Character:MoveTo(SafetyStatue:GetChildren()[1].Position)
+	plr.Character:MoveTo(Bag.hit.Position)
+	plr.Character:MoveTo(SafetyStatue.hit.Position)
 	plr.Character:MoveTo(Vector3.new(startingpos))
    end,
 })
