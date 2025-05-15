@@ -44,7 +44,11 @@ local Input = MainTab:CreateInput({
    RemoveTextAfterFocusLost = false,
    Flag = "Input1",
    Callback = function(Text)
-   -- The function that takes place when the input is changed
-   -- The variable (Text) is a string for the value in the text box
+   local args = {
+    [1] = "Character",
+    [2] = Text
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Buy"):FireServer(unpack(args))
    end,
 })
