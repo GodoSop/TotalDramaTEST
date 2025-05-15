@@ -66,12 +66,10 @@ local SafetyButton = MainTab:CreateButton({
 	
 	local SafetyStatue = workspace.Idols:WaitForChild("SafetyStatue",4)
 	local Bag = workspace.Idols:WaitForChild("Bag",4)
-	local plr = game.Players.LocalPlayer
 	local startingpos = workspace:WaitForChild(tostring(plr)).HumanoidRootPart.CFrame
 
-	plr.Character:MoveTo(Bag.hit.Position)
-	plr.Character:MoveTo(SafetyStatue.hit.Position)
-	plr.Character:MoveTo(Vector3.new(startingpos))
+	Bag.hit.Position = Vector3.new(startingpos)
+	SafetyStatue.hit.Position = Vector3.new(startingpos)
    end,
 })
 
