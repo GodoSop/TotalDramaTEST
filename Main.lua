@@ -1,3 +1,4 @@
+--This script is open source for all <3 if you want to check how it works feel fee to do so. Im using Rayfield UI library.
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Disable-adonis-anti-cheat-19754"))()
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
