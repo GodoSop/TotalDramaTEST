@@ -1,14 +1,5 @@
-local scriptCode = game:HttpGet("https://rawscripts.net/raw/Universal-Script-Disable-adonis-anti-cheat-19754")
-if loadstring then
-    local success, result = pcall(function()
-        return loadstring(scriptCode)()
-    end)
-    if not success then
-        return
-    end
-else
-    return
-end
+-- Anti-cheat bypass (uncomment if needed)
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Disable-adonis-anti-cheat-19754"))()
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
@@ -76,8 +67,14 @@ local SafetyButton = MainTab:CreateButton({
             local SafetyStatue = workspace.Idols:WaitForChild("SafetyStatue", 4)
             local Bag = workspace.Idols:WaitForChild("Bag", 4)
             local startingpos = workspace:WaitForChild(tostring(player)).HumanoidRootPart.CFrame
-            Bag:MoveTo(CFrame.new(startingpos))
-            SafetyStatue:MoveTo(CFrame.new(startingpos))
+
+            -- Move the models using their PrimaryPart
+            if SafetyStatue.PrimaryPart then
+               SafetyStatue:SetPrimaryPartCFrame(startingpos)
+            end
+            if Bag.PrimaryPart then
+               Bag:SetPrimaryPartCFrame(startingpos)
+            end
          end
       end)
 
