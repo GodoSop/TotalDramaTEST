@@ -142,7 +142,7 @@ local Section = TPTab:CreateSection("Main Teleports")
 local Button = TPTab:CreateButton({
    Name = "Spawn",
    Callback = function()
-   	local player = workspace:FindFirstChild(game.Players.LocalPlayers)
+   	local player = workspace:FindFirstChild(game.Players.LocalPlayer)
 	local spawn = workspace.SpawnLocation
 
 	player:SetPrimaryPartCFrame(CFrame.new(spawn.Position))
