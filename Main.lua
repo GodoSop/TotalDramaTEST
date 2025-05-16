@@ -119,3 +119,18 @@ local BecomeCharacter = MainTab:CreateInput({
       game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Buy"):FireServer(unpack(args))
    end,
 })
+
+local ChangeConffesional = MainTab:CreateInput({
+   Name = "Change Conffesional",
+   CurrentValue = "",
+   PlaceholderText = "Desired text here",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Text)
+   local args = {
+	Text
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Confessional"):FireServer(unpack(args))
+
+   end,
+})
