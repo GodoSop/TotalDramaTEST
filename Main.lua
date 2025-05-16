@@ -105,27 +105,6 @@ local SafetyButton = MainTab:CreateButton({
    end,
 })
 
-local MathMania = MainTab:CreateButton({
-   Name = "Solve Math Mania",
-   Callback = function()
-   for number = 1, 10 do
-    local folder = workspace.Assets["Math Mania"]["MathMania"][tostring(number)]
-    local answer = folder:FindFirstChild("Answer")
-
-    local box = workspace.Assets["Math Mania"][tostring(number)]:FindFirstChild("Box")
-    local enter = workspace.Assets["Math Mania"][tostring(number)]:FindFirstChild("Enter")
-
-    if answer and box and enter then
-        box:CaptureFocus()
-        box.Text = tostring(answer.Value)
-        box:ReleaseFocus()
-
-        enter:Activate()
-    end
-end
-   end,
-})
-
 local BecomeCharacter = MainTab:CreateInput({
    Name = "Become any character",
    CurrentValue = "",
