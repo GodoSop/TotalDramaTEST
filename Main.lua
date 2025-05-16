@@ -134,3 +134,16 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Confes
 
    end,
 })
+
+local TPTab = Window:CreateTab("Teleports", nil) -- Title, Image
+local Section = Tab:CreateSection("Main Teleports")
+
+local Button = TPTab:CreateButton({
+   Name = "Spawn",
+   Callback = function()
+   	local player = workspace:FindFirstChild(game.Players.LocalPlayers)
+	local spawn = workspace.SpawnLocation
+
+	player:SetPrimaryPartCFrame(CFrame.new(spawn.Position))
+   end,
+})
