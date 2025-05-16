@@ -145,6 +145,6 @@ local Button = TPTab:CreateButton({
    	local player = workspace:FindFirstChild(game.Players.LocalPlayer)
 	local spawn = workspace.SpawnLocation
 
-	player:SetPrimaryPartCFrame(CFrame.new(spawn.Position))
+	player:MoveTo(CFrame.new(spawn.Position))
    end,
 })
