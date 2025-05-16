@@ -136,7 +136,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Confes
 })
 
 local TPTab = Window:CreateTab("Teleports", nil) -- Title, Image
-local Section = Tab:CreateSection("Main Teleports")
+local Section = TPTab:CreateSection("Main Teleports")
 
 local Button = TPTab:CreateButton({
    Name = "Spawn",
