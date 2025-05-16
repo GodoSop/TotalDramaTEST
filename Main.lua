@@ -121,7 +121,7 @@ local BecomeCharacter = MainTab:CreateInput({
    end,
 })
 
-local ComebackFemale = Tab:CreateButton({
+local ComebackFemale = MainTab:CreateButton({
    Name = "Come back into the game(Female)",
    Callback = function()
    local args = {
@@ -132,7 +132,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Buy"):
    end,
 })
 
-local ComebackMale = Tab:CreateButton({
+local ComebackMale = MainTab:CreateButton({
    Name = "Come back into the game(Male)",
    Callback = function()
    local args = {
