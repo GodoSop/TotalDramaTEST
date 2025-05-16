@@ -142,6 +142,28 @@ local BecomeCharacter = MainTab:CreateInput({
    end,
 })
 
+local ComebackFemale = Tab:CreateButton({
+   Name = "Come back into the game(Female)",
+   Callback = function()
+   local args = {
+	"Gender",
+	"Female"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Buy"):FireServer(unpack(args))
+   end,
+})
+
+local ComebackMale = Tab:CreateButton({
+   Name = "Come back into the game(Male)",
+   Callback = function()
+   local args = {
+	"Gender",
+	"Male"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Buy"):FireServer(unpack(args))
+   end,
+})
+
 local ChangeConffesional = MainTab:CreateInput({
    Name = "Change Conffesional",
    CurrentValue = "",
