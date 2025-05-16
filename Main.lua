@@ -1,4 +1,3 @@
--- Anti-cheat bypass (uncomment if needed)
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Disable-adonis-anti-cheat-19754"))()
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
