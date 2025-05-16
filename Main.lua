@@ -105,22 +105,6 @@ local SafetyButton = MainTab:CreateButton({
    end,
 })
 
-local BecomeCharacter = MainTab:CreateInput({
-   Name = "Become any character",
-   CurrentValue = "",
-   PlaceholderText = "Character",
-   RemoveTextAfterFocusLost = false,
-   Flag = "Input1",
-   Callback = function(Text)
-      local args = {
-         [1] = "Character",
-         [2] = Text
-      }
-
-      game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Buy"):FireServer(unpack(args))
-   end,
-})
-
 local ComebackFemale = MainTab:CreateButton({
    Name = "Come back into the game(Female)",
    Callback = function()
@@ -140,6 +124,22 @@ local ComebackMale = MainTab:CreateButton({
 	"Male"
 }
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Buy"):FireServer(unpack(args))
+   end,
+})
+
+local BecomeCharacter = MainTab:CreateInput({
+   Name = "Become any character",
+   CurrentValue = "",
+   PlaceholderText = "Character",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Text)
+      local args = {
+         [1] = "Character",
+         [2] = Text
+      }
+
+      game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Buy"):FireServer(unpack(args))
    end,
 })
 
