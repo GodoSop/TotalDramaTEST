@@ -1,42 +1,48 @@
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Disable-adonis-anti-cheat-19754"))() --anticheat bypass credits to respective owners
+local scriptCode = game:HttpGet("https://rawscripts.net/raw/Universal-Script-Disable-adonis-anti-cheat-19754")
+if loadstring then
+    local success, result = pcall(function()
+        return loadstring(scriptCode)()
+    end)
+    if not success then
+        return
+    end
+else
+    return
+end
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
    Name = "Godo Hub",
-   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   Icon = 0,
    LoadingTitle = "GodoHub",
    LoadingSubtitle = "by GodoSop",
-   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
-
+   Theme = "Default",
    DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
-
+   DisableBuildWarnings = false,
    ConfigurationSaving = {
       Enabled = false,
-      FolderName = nil, -- Create a custom folder for your hub/game
+      FolderName = nil,
       FileName = "Big Hub"
    },
-
    Discord = {
-      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
-      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
-      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+      Enabled = false,
+      Invite = "noinvitelink",
+      RememberJoins = true
    },
-
-   KeySystem = false, -- Set this to true to use our key system
+   KeySystem = false,
    KeySettings = {
       Title = "Untitled",
       Subtitle = "Key System",
-      Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
-      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key",
+      SaveKey = true,
+      GrabKeyFromSite = false,
+      Key = {"Hello"}
    }
 })
 
-local MainTab = Window:CreateTab("Main", nil) -- Title, Image
+local MainTab = Window:CreateTab("Main", nil)
 local Section = MainTab:CreateSection("Basic Features")
 
 local WinButton = MainTab:CreateButton({
@@ -48,12 +54,12 @@ local WinButton = MainTab:CreateButton({
       local assetsFolder = game.Workspace.Assets
 
       for _, item in pairs(assetsFolder:GetDescendants()) do
-      	if item:IsA("Part") and item.Name == "Finish" then
-	      	finishPart = item
-	      	break
-      	end
+         if item:IsA("Part") and item.Name == "Finish" then
+            finishPart = item
+            break
+         end
       end
-	
+
       repeat wait() until game.Players.LocalPlayer.PlayerGui.Game.Background.MainText.Text == "GO!"
       Player.CFrame = CFrame.new(finishPart.Position)
    end,
@@ -62,37 +68,44 @@ local WinButton = MainTab:CreateButton({
 local SafetyButton = MainTab:CreateButton({
    Name = "Find Bag and Statue(Doesnt always spawn)",
    Callback = function()
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local hrp = character:WaitForChild("HumanoidRootPart")
+      local player = game.Players.LocalPlayer
+      local timerGui = player:WaitForChild("PlayerGui"):WaitForChild("Timer")
 
-local idols = workspace:WaitForChild("Idols")
-local bag = idols:WaitForChild("Bag")
-local statue = idols:WaitForChild("SafetyStatue")
+      timerGui.AncestryChanged:Connect(function(_, parent)
+         if parent == nil then
+            local SafetyStatue = workspace.Idols:WaitForChild("SafetyStatue", 4)
+            local Bag = workspace.Idols:WaitForChild("Bag", 4)
+            local startingpos = workspace:WaitForChild(tostring(player)).HumanoidRootPart.CFrame
+            Bag:MoveTo(CFrame.new(startingpos))
+            SafetyStatue:MoveTo(CFrame.new(startingpos))
+         end
+      end)
 
--- Sets the model's PrimaryPart to "hit" and aligns it with the player's HumanoidRootPart
-local function snapModelToPlayer(model, offset)
-	local hitPart = model:FindFirstChild("hit", true)
-	if not hitPart or not hitPart:IsA("BasePart") then
-		warn("No valid 'hit' part in model:", model.Name)
-		return
-	end
+      local function setHitAsPrimary(model)
+         local hitPart = model:FindFirstChild("hit", true)
+         if hitPart and hitPart:IsA("BasePart") then
+            model.PrimaryPart = hitPart
+            return true
+         else
+            return false
+         end
+      end
 
-	model.PrimaryPart = hitPart
+      local character = player.Character or player.CharacterAdded:Wait()
+      local hrp = character:WaitForChild("HumanoidRootPart")
 
-	-- Move model so that "hit" part aligns with HumanoidRootPart + optional offset
-	local targetCFrame = hrp.CFrame * offset
-	local relative = hitPart.CFrame:toObjectSpace(model:GetPrimaryPartCFrame())
-	local adjustedCFrame = targetCFrame * relative:Inverse()
+      local idols = workspace:WaitForChild("Idols")
+      local bag = idols:WaitForChild("Bag")
+      local statue = idols:WaitForChild("SafetyStatue")
 
-	model:SetPrimaryPartCFrame(adjustedCFrame)
-end
+      if setHitAsPrimary(bag) then
+         bag:SetPrimaryPartCFrame(hrp.CFrame * CFrame.new(3, 0, 0))
+      end
 
--- Snap models directly in front and behind the player (or modify these offsets as needed)
-snapModelToPlayer(bag, CFrame.new(0, 0, -2))     -- In front of player
-snapModelToPlayer(statue, CFrame.new(0, 0, 2))   -- Behind player
-end)		
-  end,
+      if setHitAsPrimary(statue) then
+         statue:SetPrimaryPartCFrame(hrp.CFrame * CFrame.new(-3, 0, 0))
+      end
+   end,
 })
 
 local BecomeCharacter = MainTab:CreateInput({
@@ -102,12 +115,11 @@ local BecomeCharacter = MainTab:CreateInput({
    RemoveTextAfterFocusLost = false,
    Flag = "Input1",
    Callback = function(Text)
-   local args = {
-    [1] = "Character",
-    [2] = Text
-}
+      local args = {
+         [1] = "Character",
+         [2] = Text
+      }
 
-game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Buy"):FireServer(unpack(args))
+      game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Buy"):FireServer(unpack(args))
    end,
 })
-
