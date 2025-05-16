@@ -139,12 +139,28 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Confes
 local TPTab = Window:CreateTab("Teleports", nil) -- Title, Image
 local Section = TPTab:CreateSection("Main Teleports")
 
-local Button = TPTab:CreateButton({
+local SpawnButton = TPTab:CreateButton({
    Name = "Spawn",
    Callback = function()
-   	local player = workspace:FindFirstChild(game.Players.LocalPlayer)
-	local spawn = workspace.SpawnLocation
+local part = workspace.SpawnLocation
 
-	player:MoveTo(CFrame.new(spawn.Position))
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+humanoidRootPart.CFrame = part.CFrame
+   end,
+})
+
+local ExileButton = TPTab:CreateButton({
+   Name = "Exile",
+   Callback = function()
+local part = workspace.Map:FindFirstChild("Roblox Drama: Camp").Game.Cave.MeshPart
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+humanoidRootPart.CFrame = part.CFrame
    end,
 })
