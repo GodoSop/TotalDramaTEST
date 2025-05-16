@@ -1,4 +1,4 @@
-local byapss = loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Disable-adonis-anti-cheat-19754"))()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Disable-adonis-anti-cheat-19754"))()
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
@@ -132,18 +132,5 @@ local ChangeConffesional = MainTab:CreateInput({
 }
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Confessional"):FireServer(unpack(args))
 
-   end,
-})
-
-local TPTab = Window:CreateTab("Teleports", nil) -- Title, Image
-
-local Section = Tab:CreateSection("Main Teleports")
-
-local SpawnTP = TPTab:CreateButton({
-   Name = "TP to Spawn",
-   Callback = function()
-   	local Player = game.Players.LocalPlayer.Character
-	local Spawn = workspace.SpawnLocation
-	Player:MoveTo(CFrame.new(SpawnLocation.Position)
    end,
 })
