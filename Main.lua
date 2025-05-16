@@ -62,11 +62,6 @@ local WinButton = MainTab:CreateButton({
 local SafetyButton = MainTab:CreateButton({
    Name = "Find Bag and Statue(Doesnt always spawn)",
    Callback = function()
-	local player = game.Players.LocalPlayer
-	local timerGui = player:WaitForChild("PlayerGui"):WaitForChild("Timer")
-
-	timerGui.AncestryChanged:Connect(function(_, parent)
-  	  if parent == nil then
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local hrp = character:WaitForChild("HumanoidRootPart")
@@ -75,24 +70,27 @@ local idols = workspace:WaitForChild("Idols")
 local bag = idols:WaitForChild("Bag")
 local statue = idols:WaitForChild("SafetyStatue")
 
-local function setHitAsPrimary(model)
+-- Sets the model's PrimaryPart to "hit" and aligns it with the player's HumanoidRootPart
+local function snapModelToPlayer(model, offset)
 	local hitPart = model:FindFirstChild("hit", true)
-	if hitPart and hitPart:IsA("BasePart") then
-		model.PrimaryPart = hitPart
-		return true
-	else
-		return false
+	if not hitPart or not hitPart:IsA("BasePart") then
+		warn("No valid 'hit' part in model:", model.Name)
+		return
 	end
+
+	model.PrimaryPart = hitPart
+
+	-- Move model so that "hit" part aligns with HumanoidRootPart + optional offset
+	local targetCFrame = hrp.CFrame * offset
+	local relative = hitPart.CFrame:toObjectSpace(model:GetPrimaryPartCFrame())
+	local adjustedCFrame = targetCFrame * relative:Inverse()
+
+	model:SetPrimaryPartCFrame(adjustedCFrame)
 end
 
-if setHitAsPrimary(bag) then
-	bag:SetPrimaryPartCFrame(hrp.CFrame * CFrame.new(3, 0, 0))
-end
-
-if setHitAsPrimary(statue) then
-	statue:SetPrimaryPartCFrame(hrp.CFrame * CFrame.new(-3, 0, 0))
-end
-    end
+-- Snap models directly in front and behind the player (or modify these offsets as needed)
+snapModelToPlayer(bag, CFrame.new(0, 0, -2))     -- In front of player
+snapModelToPlayer(statue, CFrame.new(0, 0, 2))   -- Behind player
 end)		
   end,
 })
