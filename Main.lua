@@ -64,8 +64,8 @@ local SafetyButton = MainTab:CreateButton({
 
       timerGui.AncestryChanged:Connect(function(_, parent)
          if parent == nil then
-            local SafetyStatue = workspace.Idols:WaitForChild("SafetyStatue", 4)
-            local Bag = workspace.Idols:WaitForChild("Bag", 4)
+            local SafetyStatue = workspace.Idols:WaitForChild("SafetyStatue", 100)
+            local Bag = workspace.Idols:WaitForChild("Bag", 100)
             local startingpos = workspace:WaitForChild(tostring(player)).HumanoidRootPart.CFrame
 
             -- Move the models using their PrimaryPart
