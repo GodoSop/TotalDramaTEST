@@ -257,3 +257,17 @@ local EnergizeFE = ExtraTab:CreateButton({
    	loadstring(game:HttpGet("https://rawscripts.net/raw/a-literal-baseplate.-energize-gui-24798"))()
    end,
 })
+
+local WalkOnWater = ExtraTab:CreateToggle({
+   Name = "Walk on water",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+	workspace.Glass:Destroy()
+	if Value == false then
+	workspace.Map:FindFirstChild("Roblox Drama: Camp").Map.Lake.Water.CanCollide = true
+	else
+	workspace.Map:FindFirstChild("Roblox Drama: Camp").Map.Lake.Water.CanCollide = false
+	end
+   end,
+})
