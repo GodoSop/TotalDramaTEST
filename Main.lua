@@ -237,7 +237,7 @@ local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
-humanoidRootPart.CFrame = part.CFrame
+humanoidRootPart.CFrame = part.Position
    end,
 })
 
