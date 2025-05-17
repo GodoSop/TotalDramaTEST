@@ -262,6 +262,12 @@ local WalkOnWater = ExtraTab:CreateButton({
    Name = "Walk on water",
    Callback = function()
    	workspace.Map["Roblox Drama: Camp"].Map.Lake.Water.CanCollide = not(workspace.Map["Roblox Drama: Camp"].Map.Lake.Water.CanCollide)
-	workspace.Glass:Destroy()
+   end,
+})
+
+local DestroyBorders = ExtraTab:CreateButton({
+   Name = "Delete Borders",
+   Callback = function()
+   	workspace.Glass:Destroy()
    end,
 })
