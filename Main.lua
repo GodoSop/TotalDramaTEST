@@ -228,6 +228,19 @@ humanoidRootPart.CFrame = part.CFrame
    end,
 })
 
+local CabinsButton = TPTab:CreateButton({
+   Name = "Cabins",
+   Callback = function()
+local part = workspace.Map:FindFirstChild("Roblox Drama: Camp").Game.Path:FindFirstChild("MeshPart")
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+humanoidRootPart.CFrame = part.CFrame
+   end,
+})
+
 local ExtraTab = Window:CreateTab("Extra", nil)
 local ExtraScripts = ExtraTab:CreateSection("Extra Scripts")
 
