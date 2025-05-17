@@ -258,7 +258,7 @@ local EnergizeFE = ExtraTab:CreateButton({
    end,
 })
 
-local WalkOnWater = Tab:CreateToggle({
+local WalkOnWater = ExtraTab:CreateToggle({
    Name = "Walk on water",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
