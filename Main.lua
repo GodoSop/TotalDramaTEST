@@ -158,6 +158,39 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Confes
    end,
 })
 
+local PlayerTab = Window:CreateTab("Player", nil)
+local PlayerSettings = Tab:CreateSection("Player Settings")
+
+local PlayerSpeed = PlayerTab:CreateInput({
+   Name = "Player Speed",
+   CurrentValue = "",
+   PlaceholderText = "Speed",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Text)
+   	local Humanoid = workspace:WaitForChild(game.Players.LocalPlayer).Humanoid
+	if typeof(Text) == "number" then
+	Humanoid.WalkSpeed = Text	
+	end
+   end,
+})
+
+local PlayerJump = PlayerTab:CreateInput({
+   Name = "Player Jump Power",
+   CurrentValue = "",
+   PlaceholderText = "Jump Power",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Text)
+   	local Humanoid = workspace:WaitForChild(game.Players.LocalPlayer).Humanoid
+	if typeof(Text) == "number" then
+	Humanoid.JumpPower = Text	
+	end
+   end,
+})
+
+
+
 local TPTab = Window:CreateTab("Teleports", nil) -- Title, Image
 local Section = TPTab:CreateSection("Main Teleports")
 
@@ -186,3 +219,21 @@ local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 humanoidRootPart.CFrame = part.CFrame
    end,
 })
+
+local ExtraTab = Window:CreateTab("Extra", nil)
+local ExtraScripts = Tab:CreateSection("Extra Scripts")
+
+local InfiniteYield = ExtraTab:CreateButton({
+   Name = "Infinite Yield",
+   Callback = function()
+   	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+   end,
+})
+
+local EnergizeFE = ExtraTab:CreateButton({
+   Name = "Energize FE",
+   Callback = function()
+   	loadstring(game:HttpGet("https://rawscripts.net/raw/a-literal-baseplate.-energize-gui-24798"))()
+   end,
+})
+
