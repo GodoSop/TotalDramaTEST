@@ -216,7 +216,7 @@ humanoidRootPart.CFrame = part.CFrame
 })
 
 local ExileButton = TPTab:CreateButton({
-   Name = "Exile",
+   Name = "Exile (camp)",
    Callback = function()
 local part = workspace.Map:FindFirstChild("Roblox Drama: Camp").Game.Cave.MeshPart
 
@@ -229,7 +229,7 @@ humanoidRootPart.CFrame = part.CFrame
 })
 
 local CabinsButton = TPTab:CreateButton({
-   Name = "Cabins",
+   Name = "Cabins (camp)",
    Callback = function()
 local part = workspace.Map:FindFirstChild("Roblox Drama: Camp").Game.Path:FindFirstChild("Stepping Stones"):FindFirstChild("MeshPart")
 
