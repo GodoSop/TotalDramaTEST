@@ -168,9 +168,13 @@ local PlayerSpeed = PlayerTab:CreateInput({
    RemoveTextAfterFocusLost = false,
    Flag = "Input1",
    Callback = function(Text)
-   	local Humanoid = game.Players.LocalPlayer.Character.Humanoid
-	if typeof(Text) == "number" then
-	Humanoid.WalkSpeed = Text	
+	local Player = game:GetService("Players").LocalPlayer
+	local character = Player.Character or Player.CharacterAdded:Wait()
+	local HumanoidRootPart = character:WaitForChild("HumanoidRootPart")
+	
+	local Humanoid =  character:WaitForChild("Humanoid")
+	if Humanoid then
+	Humanoid.WalkSpeed = Text
 	end
    end,
 })
@@ -182,9 +186,13 @@ local PlayerJump = PlayerTab:CreateInput({
    RemoveTextAfterFocusLost = false,
    Flag = "Input1",
    Callback = function(Text)
-   	local Humanoid = game.Players.LocalPlayer.Character.Humanoid
-	if typeof(Text) == "number" then
-	Humanoid.JumpPower = Text	
+	local Player = game:GetService("Players").LocalPlayer
+	local character = Player.Character or Player.CharacterAdded:Wait()
+	local HumanoidRootPart = character:WaitForChild("HumanoidRootPart")
+ 
+	local Humanoid =  character:WaitForChild("Humanoid")
+	if Humanoid then
+	Humanoid.JumpPower = Text
 	end
    end,
 })
