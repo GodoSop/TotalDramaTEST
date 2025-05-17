@@ -258,11 +258,10 @@ local EnergizeFE = ExtraTab:CreateButton({
    end,
 })
 
-workspace.Glass:Destroy()
-
 local WalkOnWater = ExtraTab:CreateButton({
    Name = "Walk on water",
    Callback = function()
    	workspace.Map["Roblox Drama: Camp"].Map.Lake.Water.CanCollide = not(workspace.Map["Roblox Drama: Camp"].Map.Lake.Water.CanCollide)
+	workspace.Glass:Destroy()
    end,
 })
