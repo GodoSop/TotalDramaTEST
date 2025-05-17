@@ -264,10 +264,6 @@ local WalkOnWater = ExtraTab:CreateToggle({
    CurrentValue = false,
    Flag = "Toggle1",
    Callback = function(Value)
-	if Value == false then
-	workspace.Map:FindFirstChild("Roblox Drama: Camp").Map.Lake.Water.CanCollide = true
-	else
-	workspace.Map:FindFirstChild("Roblox Drama: Camp").Map.Lake.Water.CanCollide = false
-	end
+   workspace.Map:FindFirstChild("Roblox Drama: Camp").Map.Lake.Water.CanCollide = not(workspace.Map:FindFirstChild("Roblox Drama: Camp").Map.Lake.Water.CanCollide)
    end,
 })
