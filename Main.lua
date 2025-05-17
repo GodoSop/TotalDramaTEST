@@ -159,7 +159,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Confes
 })
 
 local PlayerTab = Window:CreateTab("Player", nil)
-local PlayerSettings = Tab:CreateSection("Player Settings")
+local PlayerSettings = PlayerTab:CreateSection("Player Settings")
 
 local PlayerSpeed = PlayerTab:CreateInput({
    Name = "Player Speed",
@@ -221,7 +221,7 @@ humanoidRootPart.CFrame = part.CFrame
 })
 
 local ExtraTab = Window:CreateTab("Extra", nil)
-local ExtraScripts = Tab:CreateSection("Extra Scripts")
+local ExtraScripts = ExtraTab:CreateSection("Extra Scripts")
 
 local InfiniteYield = ExtraTab:CreateButton({
    Name = "Infinite Yield",
