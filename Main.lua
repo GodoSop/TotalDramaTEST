@@ -168,7 +168,7 @@ local PlayerSpeed = PlayerTab:CreateInput({
    RemoveTextAfterFocusLost = false,
    Flag = "Input1",
    Callback = function(Text)
-   	local Humanoid = workspace:WaitForChild(game.Players.LocalPlayer).Humanoid
+   	local Humanoid = game.Players.LocalPlayer.Character.Humanoid
 	if typeof(Text) == "number" then
 	Humanoid.WalkSpeed = Text	
 	end
@@ -182,7 +182,7 @@ local PlayerJump = PlayerTab:CreateInput({
    RemoveTextAfterFocusLost = false,
    Flag = "Input1",
    Callback = function(Text)
-   	local Humanoid = workspace:WaitForChild(game.Players.LocalPlayer).Humanoid
+   	local Humanoid = game.Players.LocalPlayer.Character.Humanoid
 	if typeof(Text) == "number" then
 	Humanoid.JumpPower = Text	
 	end
