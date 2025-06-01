@@ -158,6 +158,66 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Confes
    end,
 })
 
+local FakeWin1 = MainTab:CreateButton({
+   Name = "Fake Win Team 1",
+   Callback = function()
+local folder = workspace.Assets
+local part = nil
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+for _, obj in ipairs(folder:GetDescendants()) do
+if obj:IsA("BasePart") and obj.Name == "Team1Finish" then
+	part = obj
+	end
+end
+			
+humanoidRootPart.CFrame = part.CFrame
+   end,
+})
+
+local FakeWin2 = MainTab:CreateButton({
+   Name = "Fake Win Team 2",
+   Callback = function()
+local folder = workspace.Assets
+local part = nil
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+for _, obj in ipairs(folder:GetDescendants()) do
+if obj:IsA("BasePart") and obj.Name == "Team2Finish" then
+	part = obj
+	end
+end
+			
+humanoidRootPart.CFrame = part.CFrame
+   end,
+})
+
+local FakeWin3 = MainTab:CreateButton({
+   Name = "Fake Win Team 3",
+   Callback = function()
+local folder = workspace.Assets
+local part = nil
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+for _, obj in ipairs(folder:GetDescendants()) do
+if obj:IsA("BasePart") and obj.Name == "Team3Finish" then
+	part = obj
+	end
+end
+			
+humanoidRootPart.CFrame = part.CFrame
+   end,
+})
+
 local PlayerTab = Window:CreateTab("Player", nil)
 local PlayerSettings = PlayerTab:CreateSection("Player Settings")
 
