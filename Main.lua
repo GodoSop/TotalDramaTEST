@@ -257,7 +257,36 @@ local PlayerJump = PlayerTab:CreateInput({
    end,
 })
 
-
+local RevealStatue = Tab:CreateButton({
+   Name = "Reveal Who Has Statue",
+   Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local owner = ReplicatedStorage.Season.Twists.Idol.Value
+local players = ReplicatedStorage.Season.Players:GetChildren()
+local foundPlayer = nil
+for _, player in pairs(players) do
+    if player.Name == owner then
+        foundPlayer = player
+        break
+    end
+end
+if foundPlayer then
+    Rayfield:Notify({
+   Title = "Statue",
+   Content = foundPlayer.Value .. "Has the statue",
+   Duration = 3,
+   Image = nil,
+})
+else
+    Rayfield:Notify({
+   Title = "Statue",
+   Content = "Nobody has the statue",
+   Duration = 3,
+   Image = nil,
+})
+end
+   end,
+})
 
 local TPTab = Window:CreateTab("Teleports", nil) -- Title, Image
 local Section = TPTab:CreateSection("Main Teleports")
