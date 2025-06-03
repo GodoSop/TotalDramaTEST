@@ -257,7 +257,7 @@ local PlayerJump = PlayerTab:CreateInput({
    end,
 })
 
-local RevealStatue = Tab:CreateButton({
+local RevealStatue = PlayerTab:CreateButton({
    Name = "Reveal Who Has Statue",
    Callback = function()
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
