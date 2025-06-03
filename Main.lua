@@ -273,7 +273,7 @@ end
 if foundPlayer then
     Rayfield:Notify({
    Title = "Statue",
-   Content = foundPlayer.Value .. "Has the statue",
+   Content = foundPlayer.Value .. " Has the statue",
    Duration = 3,
    Image = nil,
 })
