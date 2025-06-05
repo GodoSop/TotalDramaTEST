@@ -113,7 +113,7 @@ local MathMania = MainTab:CreateButton({
    Title = "Math Mania Answer",
    Content = tostring(workspace.Assets["Math Mania"].Questions[i].answer.Value),
    Duration = 7,
-   Image = 4483362458,
+   Image = nil,
 })
 		wait(7)
 	end
@@ -306,18 +306,22 @@ end
 local PrintVotes = PlayerTab:CreateButton({
    Name = "Print Votes",
    Callback = function()
-	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-   local input = ReplicatedStorage.GuiTexts.Votes.Value
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local input = ReplicatedStorage.GuiTexts.Votes.Value
 local output = ""
 
 for name, voted in string.gmatch(input, "(%w+)%((%w+)%)") do
-	output = output .. name .. " voted " .. voted .. ", "
+	output = output .. name .. " voted " .. voted .. "\n"
 end
 
-output = string.sub(output, 1, -3)
+output = output:sub(1, -2)
 
-print(output)
-
+Rayfield:Notify({
+   Title = "Voting",
+   Content = output,
+   Duration = 8,
+   Image = nil,
+})
    end,
 })
 
