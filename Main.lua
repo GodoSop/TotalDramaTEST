@@ -105,6 +105,21 @@ local SafetyButton = MainTab:CreateButton({
    end,
 })
 
+local MathMania = MainTab:CreateButton({
+   Name = "Math Mania Answers",
+   Callback = function()
+   	for i = 1, 10 do
+	Rayfield:Notify({
+   Title = "Math Mania Answer",
+   Content = tostring(workspace.Assets["Math Mania"].Questions[i].answer.value),
+   Duration = 7,
+   Image = 4483362458,
+})
+		wait(7)
+	end
+   end,
+})
+
 local ComebackFemale = MainTab:CreateButton({
    Name = "Come back into the game(Female)",
    Callback = function()
