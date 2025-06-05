@@ -108,6 +108,7 @@ local SafetyButton = MainTab:CreateButton({
 local MathMania = MainTab:CreateButton({
    Name = "Math Mania Answers",
    Callback = function()
+	wait(3)
    	for i = 1, 10 do
 	Rayfield:Notify({
    Title = "Math Mania Answer",
