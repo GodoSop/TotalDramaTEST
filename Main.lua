@@ -303,7 +303,7 @@ end
    end,
 })
 
-local PrintVotes = Tab:CreateButton({
+local PrintVotes = PlayerTab:CreateButton({
    Name = "Print Votes",
    Callback = function()
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
