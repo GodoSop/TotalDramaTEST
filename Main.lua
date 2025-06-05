@@ -112,10 +112,10 @@ local MathMania = MainTab:CreateButton({
 	Rayfield:Notify({
    Title = "Math Mania Answer",
    Content = tostring(workspace.Assets["Math Mania"].Questions[i].answer.Value),
-   Duration = 7,
+   Duration = 4,
    Image = nil,
 })
-		wait(7)
+		wait(4)
 	end
    end,
 })
