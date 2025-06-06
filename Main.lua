@@ -449,7 +449,7 @@ local function toggleFakeLag()
             local hrp = character:FindFirstChild("HumanoidRootPart")
             if hrp then
                 hrp.Anchored = true
-                task.wait(0.2)
+                task.wait(0.1)
                 hrp.Anchored = false
                 task.wait()
             end
