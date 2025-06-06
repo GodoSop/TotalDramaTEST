@@ -116,7 +116,7 @@ local MathMania = MainTab:CreateButton({
    Duration = 4,
    Image = nil,
 })
-		wait(4)
+		wait(2.5)
 	end
    end,
 })
