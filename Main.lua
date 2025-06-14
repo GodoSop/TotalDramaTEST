@@ -280,10 +280,10 @@ local LongName = PlayerTab:CreateInput({
    RemoveTextAfterFocusLost = false,
    Flag = "Input1",
    Callback = function(Text)
-local longString = ""
+local longString = "​"
 
-for i = 1, 1000000 do
-longString = longString .. "​"
+for i = 1, 21 do
+longString = longString .. longString
 end
 
 local FinalText = Text .. longSting
