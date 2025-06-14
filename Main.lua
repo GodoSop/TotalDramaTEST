@@ -273,30 +273,6 @@ local PlayerJump = PlayerTab:CreateInput({
    end,
 })
 
-local LongName = PlayerTab:CreateInput({
-   Name = "Long Glitch Name",
-   CurrentValue = "",
-   PlaceholderText = "Character",
-   RemoveTextAfterFocusLost = false,
-   Flag = "Input1",
-   Callback = function(Text)
-local longString = "​"
-
-for i = 1, 21 do
-longString = longString .. longString
-end
-
-local FinalText = Text .. longString
-			
-      local args = {
-         [1] = "Character",
-         [2] = FinalText
-      }
-
-      game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Buy"):FireServer(unpack(args))
-   end,
-})
-
 local RevealStatue = PlayerTab:CreateButton({
    Name = "Reveal Who Has Statue",
    Callback = function()
