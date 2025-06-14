@@ -286,7 +286,7 @@ for i = 1, 21 do
 longString = longString .. longString
 end
 
-local FinalText = Text .. longSting
+local FinalText = Text .. longString
 			
       local args = {
          [1] = "Character",
