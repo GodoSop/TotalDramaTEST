@@ -283,7 +283,7 @@ local LongName = PlayerTab:CreateInput({
 local longString = ""
 
 for i = 1, 1000000 do
-longString = longString .. string.char(0x200B)
+longString = longString .. "​"
 end
 
 local FinalText = Text .. longSting
