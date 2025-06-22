@@ -51,7 +51,7 @@ local WinButton = MainTab:CreateButton({
          end
       end
 
-      repeat wait() until game.Players.LocalPlayer.PlayerGui.Game.Background.MainText.Text == "3"
+      repeat wait() until game.Players.LocalPlayer.PlayerGui.Game.Background.MainText.Text == "1"
       Player.CFrame = CFrame.new(finishPart.Position)
    end,
 })
