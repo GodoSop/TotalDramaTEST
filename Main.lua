@@ -1,4 +1,5 @@
 --This script is open source for all <3 if you want to check how it works feel free to do so. Im using Rayfield UI library.
+loadstring(game:HttpGet('https://raw.githubusercontent.com/GodoSop/TotalDramaTEST/refs/heads/main/Notify.lua'))()
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
